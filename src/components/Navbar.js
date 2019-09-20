@@ -1,11 +1,12 @@
 import React from 'react';
+import ToggleButton from './sidebar/ToggleButton';
 import './Navbar.css';
 
 const Navbar = props => (
     <header className="toolbar">
         <nav className="toolbar_navigation">
             <div>
-                
+                <ToggleButton />
             </div>
             <div className="toolbar_logo"><a herf="/">The Logo</a></div>
             <div className="spacer" />
