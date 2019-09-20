@@ -1,20 +1,19 @@
 import React from 'react';
 import './App.css';
+import './animate.css';
 import Navbar from './components/Navbar';
 
 class App extends React.Component {
-  showNavigator(){
-    document.getElementById('nav-sidebar')
-    .style.display = 'block';
-  }
-  
   render(){
     return (
-      <div className="App">
-        <header className="App-header">
-            <div>Hello World</div>
-        </header>
-      </div>
+     
+        <div className="App">
+          <Navbar />
+          <main style={{marginTop: '64px'}}>
+            <p>This is the page content</p>
+          </main>
+        </div>
+      
     );
   }
 }
