@@ -1,60 +1,58 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
+import Distance from './Components/Distance';
+import Api from './Components/Api';
+import ReactMapGL, {Marker} from 'react-map-gl';
+import * as PlugShare from "./Components/plug-location.json";
 
-import './App.css';
 
-class App extends Component {
-  constructor(props){
-      super(props);
-      this.state = {
-          items: [],
-          isLoaded: false,
-  }
-}
 
-  componentDidMount() {
-   const url= 'https://api.openchargemap.io/v3/poi/?output=json&countrycode=FI&maxresults=500&compact=true&verbose=false'
-      fetch(url)
-          .then(res => res.json())
-          .then(json => {
-            this.setState({
-              isLoaded: true,
-              items: json,
-            })
-          });
-  }
+function App() {
+   const [viewport, setviewport] = useState({
+     latitude:60.242263300000005,
+     longitude:25.0716969,
+     width: '100vw',
+     height: '80vh',
+     zoom: 10,
+   });
 
-  render() {
-    var {isLoaded, items} = this.state;
-    if (!isLoaded) {
-      return <div>loading....</div>
-    } else {
-      return (
-        <div className="App">
-          <ul>
-            {items.map(item => (
-              <li key={item.ID}>
-                Customer ID : {item.ID} <br/>
-                Customer AddressLine1  : {item.AddressInfo.AddressLine1} <br/>
-                Customer AddressLine2  : {item.AddressInfo.AddressLine1} <br/>
-                Customer Postcode : {item.AddressInfo.Postcode} <br/>
-                Customer City  : {item.AddressInfo.Town} <br/>
-                Location Latitude : {item.AddressInfo.Latitude} <br/>
-                Location Longitude : {item.AddressInfo.Longitude} <br/>
-                
-                <br/>
-               
-               </li>
-            ))};
-          </ul>
-        </div>
-        );
-    }
+    
      
-}
-}
+        return (
+          <div className="App">
+            
+            <ReactMapGL  {...viewport} 
+            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+            mapStyle = "mapbox://styles/akeundo/ck0vicxkj0pd41clpjk9abqki"
+            onViewportChange={viewport => {
+              setviewport(viewport);
+            }}
+             >
+            {PlugShare.features.map(plug => (
+              <marker 
+              key={plug.ID }
+              latitude={plug.AddressInfo.Latitude}
+              longitude={plug.AddressInfo.Longitude}
+              >
+               <div class="marker">plugs</div>
+              </marker>
+            ))}
+            </ReactMapGL>
+            <Distance/>
+            <Api/>
+            
+          </div>
+          );
+      }
+       
+
+
+
+ 
 export default App;
+
+
 /*
-Charging Port : {item.Connections[0].Quantity ? item.Connections[0].Quantity : 'Not found'} <br/>
- Plug Model: {item.Connections[0].ConnectionType ? item.Connections[0].ConnectionType.Title : 'not found'} <br/>
- Plug Status: {item.Connections[0].StatusType ? item.Connections[0].StatusType.Title : 'not found'} <br/>
+<button class="marker">
+ <img src="./electric-car.jpg" alt ="plug icon" />
+</button> 
 */
