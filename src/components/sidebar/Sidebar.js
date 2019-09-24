@@ -3,13 +3,13 @@ import React from 'react';
 import './Sidebar.css';
 
 const Sidebar = props => (
-    <nav className="side-bar">
+    <nav className="side-bar animated fadeInLeft">
         <ul>
-            <li><a herf="/">Home</a></li>
-            <li><a herf="/">Add Station</a></li>
-            <li><a herf="/">Plugs</a></li>
-            <li><a herf="/">TravelPlug Store</a></li>
-            <li><a herf="/">Submit Feedback</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Add Station</a></li>
+            <li><a href="/">Plugs</a></li>
+            <li><a href="/">TravelPlug Store</a></li>
+            <li><a href="/">Submit Feedback</a></li>
 
         </ul>
     </nav>

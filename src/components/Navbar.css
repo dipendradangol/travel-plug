@@ -2,6 +2,7 @@
     background: #fa2e2e;
     top: 0;
     left: 0;
+    width: 100%;
     position: fixed;
     height: 56px;
 }
@@ -23,6 +24,11 @@
 
 .spacer {
     flex: 1;
+}
+
+.toolbar_navigation_items a {
+    color: white;
+    text-decoration: none;
 }
 
 .toolbar_navigation_items ul {

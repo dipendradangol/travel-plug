@@ -6,17 +6,15 @@ const Navbar = props => (
     <header className="toolbar">
         <nav className="toolbar_navigation">
             <div>
-                <ToggleButton />
+                <ToggleButton click={props.drawerClickHandler} />
             </div>
-            <div className="toolbar_logo"><a herf="/">The Logo</a></div>
+            <div className="toolbar_logo"><a href="/">Travel Plug</a></div>
             <div className="spacer" />
             <div className="toolbar_navigation_items">
                 <ul>
-                    <li><a herf="/">Home</a></li>
-                    <li><a herf="/">Add Station</a></li>
-                    <li><a herf="/">Plugs</a></li>
-                    <li><a herf="/">TravelPlug Store</a></li>
-                    <li><a herf="/">Submit Feedback</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">login</a></li>
+                    <li><a href="/">Register</a></li>
                 </ul>
             </div>
         </nav>
