@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 
 
-class App extends Component {
+class Api extends Component {
   constructor(props){
       super(props);
       this.state = {
@@ -52,7 +52,7 @@ class App extends Component {
      
 }
 }
-export default App;
+export default Api;
 /*
 Charging Port : {item.Connections[0].Quantity ? item.Connections[0].Quantity : 'Not found'} <br/>
  Plug Model: {item.Connections[0].ConnectionType ? item.Connections[0].ConnectionType.Title : 'not found'} <br/>
