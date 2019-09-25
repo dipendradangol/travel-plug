@@ -1,5 +1,6 @@
 .side-bar {
     height: 100%;
+    margin-top: 56px;
     background: white;
     box-shadow: 1px 0px 7px rgb(121, 120, 120);
     position: fixed;

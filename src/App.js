@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import Distance from './Components/Distance';
-import Api from './Components/Api';
-import ReactMapGL, {Marker} from 'react-map-gl';
-import * as PlugShare from "./Components/plug-location.json";
+import React from 'react';
+import Distance from './components/Distance';
+import Api from './components/Api';
+import ReactMapGL from 'react-map-gl';
+import * as PlugShare from './components/plug-location.json';
 import './App.css';
 import './animate.css';
 import Navbar from './components/Navbar';
 import Sidebar from './components/sidebar/Sidebar';
-import Backdrop from './components/sidebar/Backdrop';
+// import Backdrop from './components/sidebar/Backdrop';
 
 class App extends React.Component {
   state = {
     sidebarOpen: false,
-    [viewport, setviewport]: {
+    viewport: {
      latitude:60.242263300000005,
      longitude:25.0716969,
      width: '100vw',
@@ -33,40 +33,39 @@ class App extends React.Component {
 
   render(){
     let sidebar;
-    let backdrop;
+    // let backdrop;
     
     if(this.state.sidebarOpen){
       sidebar = <Sidebar />;
-      backdrop = <Backdrop click={this.backdropClickHandler} />;
+      // backdrop = <Backdrop click={this.backdropClickHandler} />;
     }
     return (
         <div style={{height: '100%'}}>
           <Navbar drawerClickHandler={this.ToggleClickHandler} />
           {sidebar}
-          {backdrop}
+          {/* {backdrop} */}
           
           <main style={{marginTop: '64px'}}>
-            <p>This is the page content</p>
-          </main>
-          <ReactMapGL  {...viewport} 
-            mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-            mapStyle = "mapbox://styles/akeundo/ck0vicxkj0pd41clpjk9abqki"
-            onViewportChange={viewport => {
-              setviewport(viewport);
-            }}
-             >
-            {PlugShare.features.map(plug => (
-              <marker 
-              key={plug.ID }
-              latitude={plug.AddressInfo.Latitude}
-              longitude={plug.AddressInfo.Longitude}
+            <ReactMapGL  {...this.state.viewport} 
+              mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+              mapStyle = "mapbox://styles/akeundo/ck0vicxkj0pd41clpjk9abqki"
+              onViewportChange={viewport => {
+                this.setState({viewport});
+              }}
               >
-               <div class="marker">plugs</div>
-              </marker>
-            ))}
-            </ReactMapGL>
-            <Distance/>
-            <Api/>
+              {PlugShare.features.map(plug => (
+                <marker 
+                key={plug.ID }
+                latitude={plug.AddressInfo.Latitude}
+                longitude={plug.AddressInfo.Longitude}
+                >
+                <div class="marker">plugs</div>
+                </marker>
+              ))}
+              </ReactMapGL>
+              <Distance/>
+              <Api/>
+          </main>
         </div>
       
     );
