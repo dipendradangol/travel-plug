@@ -83,7 +83,7 @@ class App extends React.Component {
 
                 <button class="marker"
                   onClick={e => {
-                    e.preventDefault(); debugger
+                    e.preventDefault();
                     this.setState({
                       selectedPlug: plug
                     });
@@ -97,8 +97,8 @@ class App extends React.Component {
 
             {this.state.selectedPlug ? (
               <Popup
-                latitude={this.state.AddressInfo.Latitude}
-                longitude={this.state.AddressInfo.Longitude}
+                latitude={this.state.selectedPlug.AddressInfo.Latitude}
+                longitude={this.state.selectedPlug.AddressInfo.Longitude}
                 onClose={() => {
                   this.setState({
                     selectedPlug: null
@@ -106,11 +106,11 @@ class App extends React.Component {
                 }}
               >
                 <div>
-                  <h2>{this.state.AddressInfo.Title}</h2>
-                  <h2>{this.state.AddressInfo.AddressLine1}</h2>
-                  <h2>{this.state.AddressInfo.AddressLine2}</h2>
-                  <h2>{this.state.AddressInfo.Postcode}</h2>
-                  <h2>{this.state.AddressInfo.Town}</h2>
+                  <h2>{this.state.selectedPlug.AddressInfo.Title}</h2>
+                  <h2>{this.state.selectedPlug.AddressInfo.AddressLine1}</h2>
+                  <h2>{this.state.selectedPlug.AddressInfo.AddressLine2}</h2>
+                  <h2>{this.state.selectedPlug.AddressInfo.Postcode}</h2>
+                  <h2>{this.state.selectedPlug.AddressInfo.Town}</h2>
 
                 </div>
               </Popup>
