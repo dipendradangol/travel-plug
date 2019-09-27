@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Distance from './components/Distance';
 import Api from './components/Api';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
@@ -21,7 +21,8 @@ class App extends React.Component {
       width: '100vw',
       height: '100vh',
       zoom: 10,
-    }
+    },
+    userLocation: {}
   };
 
   ToggleClickHandler = () => {
@@ -34,6 +35,19 @@ class App extends React.Component {
     this.setState({ sidebarOpen: false });
   };
 
+  setUserLocation = () => {
+  navigator.geolocation.getCurrentPosition(position => {
+     let setUserLocation = {
+         lat: position.coords.latitude,
+         long: position.coords.longitude
+      };
+
+      this.setState({
+                userLocation: setUserLocation
+                    });
+                  });
+};
+
   render() {
     let sidebar;
     // let backdrop;
@@ -44,20 +58,7 @@ class App extends React.Component {
 
 
 
-      useEffect(() => {
-        const listener = e => {
-          if (e.key === "Escape") {
-            this.setState({
-              selectedPlug: null
-            });
-          }
-        };
-        window.addEventListener("keydown", listener);
-
-        return () => {
-          window.removeEventListener("keydown", listener);
-        };
-      }, []);
+      
 
     }
     return (
@@ -67,6 +68,7 @@ class App extends React.Component {
         {/* {backdrop} */}
 
         <main style={{ marginTop: '64px' }}>
+          
           <ReactMapGL  {...this.state.viewport}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
             mapStyle="mapbox://styles/akeundo/ck0vicxkj0pd41clpjk9abqki"
@@ -80,7 +82,7 @@ class App extends React.Component {
                 latitude={plug.AddressInfo.Latitude}
                 longitude={plug.AddressInfo.Longitude}
               >
-
+              
                 <button class="marker"
                   onClick={e => {
                     e.preventDefault();
@@ -116,12 +118,13 @@ class App extends React.Component {
               </Popup>
             ) : null}
 
+           
           </ReactMapGL>
           <Distance />
           <Api />
         </main>
       </div>
-
+            
     );
   }
 }
@@ -148,5 +151,22 @@ export default App;
 
                  </Marker>
                ))}
+
+ key down component below not working yet
+
+useEffect(() => {
+        const listener = e => {
+          if (e.key === "Escape") {
+            this.setState({
+              selectedPlug: null
+            });
+          }
+        };
+        window.addEventListener("keydown", listener);
+
+        return () => {
+          window.removeEventListener("keydown", listener);
+        };
+      }, []);
 
 */
