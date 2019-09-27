@@ -16,13 +16,13 @@ class App extends React.Component {
     sidebarOpen: false,
     selectedPlug: null,
     viewport: {
-      latitude: 60.242263300000005,
-      longitude: 25.0716969,
+      latitude: 60.198912,
+      longitude: 24.942182,
       width: '100vw',
       height: '100vh',
       zoom: 10,
     },
-    userLocation: {}
+  //  setUserLocation,
   };
 
   ToggleClickHandler = () => {
@@ -43,7 +43,7 @@ class App extends React.Component {
       };
 
       this.setState({
-                userLocation: setUserLocation
+//        setUserLocation: setUserLocation
                     });
                   });
 };
@@ -120,7 +120,7 @@ class App extends React.Component {
 
            
           </ReactMapGL>
-          <Distance />
+          <Distance/>
           <Api />
         </main>
       </div>
