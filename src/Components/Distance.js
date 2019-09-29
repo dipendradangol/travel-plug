@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-export default class Distance extends Component {
+class Distance extends Component {
     constructor(){
         super();
         this.state = {
@@ -52,3 +52,4 @@ export default class Distance extends Component {
     }
 }
 
+export default Distance;
