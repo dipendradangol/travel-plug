@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import CardDeck from 'react-bootstrap/CardDeck';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup'
 
 
 
@@ -29,23 +32,45 @@ class Api extends Component {
       return <div>loading....</div>
     } else {
       return (
-        <div className="App">
-          <ul>
+        <div>
+          {/* <Card style={{ width: '18rem', marginTop: '56px', display: 'inline-flex' }}>
+                <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+                <Card.Body>
+                    <Card.Title>Card Title</Card.Title>
+                    <Card.Text>
+
+                    </Card.Text>
+                </Card.Body>  
+              </Card> */}
+          
             {items.map(item => (
-              <li key={item.ID}>
-                Customer ID : {item.ID} <br/>
-                Customer AddressLine1  : {item.AddressInfo.AddressLine1} <br/>
-                Customer AddressLine2  : {item.AddressInfo.AddressLine1} <br/>
-                Customer Postcode : {item.AddressInfo.Postcode} <br/>
-                Customer City  : {item.AddressInfo.Town} <br/>
-                Location Latitude : {item.AddressInfo.Latitude} <br/>
-                Location Longitude : {item.AddressInfo.Longitude} <br/>
-                
-                <br/>
-               
-               </li>
+              <CardDeck style={{display:'inline-block', margin:'auto auto'}}>
+                <div key={item.ID}>
+                  <Card style={{ width: '23rem', marginTop: '56px' }}>
+                  <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+                    <Card.Body>
+                      <Card.Title>Nearest Station</Card.Title>
+                      <Card.Text>
+                        {/* Customer AddressLine2  : {item.AddressInfo.AddressLine1} <br/> */}
+                        {/* Customer Postcode : {item.AddressInfo.Postcode} <br/>
+                        Customer City  : {item.AddressInfo.Town} <br/>
+                        Location Latitude : {item.AddressInfo.Latitude} <br/>
+                        Location Longitude : {item.AddressInfo.Longitude} <br/> */}
+                      </Card.Text>
+                    </Card.Body>  
+                      <ListGroup className="list-group-flush">
+                        <ListGroup.Item> Customer ID : {item.ID}</ListGroup.Item>
+                        <ListGroup.Item>Address : {item.AddressInfo.AddressLine1}</ListGroup.Item>
+                        <ListGroup.Item>Postcode : {item.AddressInfo.Postcode}</ListGroup.Item>
+                        <ListGroup.Item>City : {item.AddressInfo.Town}</ListGroup.Item>
+                        <ListGroup.Item>Location Latitude : {item.AddressInfo.Latitude}</ListGroup.Item>
+                        <ListGroup.Item>Location Longitude : {item.AddressInfo.Longitude}</ListGroup.Item>
+                      </ListGroup>
+                  </Card>
+                </div>
+              </CardDeck>
             ))};
-          </ul>
+        
         </div>
         );
     }
