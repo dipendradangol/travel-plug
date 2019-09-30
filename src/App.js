@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/sidebar/Sidebar';
 import Map from './components/Map';
 import Api from './components/Api';
+import Form from './components/Form';
+import SignInForm from './components/SignInForm';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
@@ -41,8 +43,8 @@ class App extends React.Component {
           {sidebar}
           <Switch>
              <Route path="/cards" exact component={Api}/> 
-             {/* <Route path="/login" component={Login}/>  */}
-             {/* <Route path="/register" component={Register}/>  */}
+             <Route path="/login" exact component={SignInForm}/> 
+             <Route exact path="/register" component={Form}/> 
              {/* <Route path="/" component={} /> */}
              {/* {backdrop} */}
              <Map />
