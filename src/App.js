@@ -43,7 +43,7 @@ class App extends React.Component {
              <Route path="/cards" exact component={Api}/> 
              {/* <Route path="/login" component={Login}/>  */}
              {/* <Route path="/register" component={Register}/>  */}
-             {/* <Route path="/sabina" component={sabina} /> */}
+             {/* <Route path="/" component={} /> */}
              {/* {backdrop} */}
              <Map />
 
