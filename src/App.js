@@ -1,12 +1,12 @@
 import React from 'react';
-import Distance from './components/Distance';
-import Api from './components/Api';
+import Distance from './Components/Distance';
+import Api from './Components/Api';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import './App.css';
 import './animate.css';
-import Navbar from './components/Navbar';
-import Sidebar from './components/sidebar/Sidebar';
-import * as plugData from "./components/plug-location.json";
+import Navbar from './Components/Navbar';
+import Sidebar from './Components/sidebar/Sidebar';
+import * as plugData from "./Components/plug-location.json";
 
 
 // import Backdrop from './components/sidebar/Backdrop';
@@ -91,7 +91,7 @@ class App extends React.Component {
                     });
                   }}
                 >
-                  <img src="./electric-car.jpg" alt="plug" />
+                  <img src="./EV-Charging3.png" alt="plug" />
                 </button>
 
               </Marker>
