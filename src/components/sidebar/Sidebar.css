@@ -1,0 +1,35 @@
+.side-bar {
+    height: 100%;
+    margin-top: 56px;
+    background: white;
+    box-shadow: 1px 0px 7px rgb(121, 120, 120);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40%;
+    max-width: 400px;
+    z-index: 200;
+}
+
+.side-bar ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.side-bar li {
+    margin: 0.5rem 0;
+}
+
+.side-bar a {
+    color: #ff0000;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.side-bar a:hover,
+.side-bar a:active {
+    color: orange;
+}
