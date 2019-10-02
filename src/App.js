@@ -46,7 +46,7 @@ class App extends React.Component {
              <Route path="/travel-plug/stations" exact component={Api}/> 
              <Route path="/travel-plug/login" exact component={SignInForm}/> 
              <Route exact path="/travel-plug/register" component={Form}/> 
-             <Route exact path="/travel-plug" component={Map}/> 
+             <Route exact path="/travel-plug/" component={Map}/> 
              {/* <Route path="/" component={} /> */}
              {/* {backdrop} */}
              {/* <Map /> */}
