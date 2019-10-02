@@ -42,7 +42,7 @@ class App extends React.Component {
           <Navbar drawerClickHandler={this.ToggleClickHandler} />
           {sidebar}
           <Switch>
-             <Route path="/cards" exact component={Api}/> 
+             <Route path="/stations" exact component={Api}/> 
              <Route path="/login" exact component={SignInForm}/> 
              <Route exact path="/register" component={Form}/> 
              {/* <Route path="/" component={} /> */}
@@ -60,42 +60,3 @@ class App extends React.Component {
 
 export default App;
 
-
-/*
-<button class="marker">
- <img src="./electric-car.jpg" alt ="plug icon" />
-</button>
-
-
-              {plugData.features.map(plug => (
-                 <Marker
-                     key={plug.ID}
-                     latitude={plug.AddressInfo.Latitude}
-                     longitude={plug.AddressInfo.Longitude}
-                 >
-
-                   <button class="marker">
-                       <img src="./electric-car.jpg" alt ="plug" />
-                   </button>
-
-                 </Marker>
-               ))}
-
- key down component below not working yet
-
-useEffect(() => {
-        const listener = e => {
-          if (e.key === "Escape") {
-            this.setState({
-              selectedPlug: null
-            });
-          }
-        };
-        window.addEventListener("keydown", listener);
-
-        return () => {
-          window.removeEventListener("keydown", listener);
-        };
-      }, []);
-
-*/

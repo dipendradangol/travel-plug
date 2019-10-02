@@ -1,5 +1,4 @@
 import React from 'react';
-// import Api from './Api';
 import Distance from './Distance';
 
 import * as plugData from "./plug-location.json";
@@ -61,7 +60,7 @@ class Map extends React.Component {
                           });
                         }}
                       >
-                        <img src="./electric-car.jpg" alt="plug" />
+                        <img src="./electric-car.png" alt="plug" />
                       </button>
 
                     </Marker>
@@ -91,7 +90,6 @@ class Map extends React.Component {
                 
                 </ReactMapGL>
                 <Distance/>
-                {/* <Api /> */}
             </main>
             
           </div>
