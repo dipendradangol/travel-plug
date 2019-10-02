@@ -43,12 +43,13 @@ class App extends React.Component {
           <Navbar drawerClickHandler={this.ToggleClickHandler} />
           {sidebar}
           <Switch>
-             <Route path="/stations" exact component={Api}/> 
-             <Route path="/login" exact component={SignInForm}/> 
-             <Route exact path="/register" component={Form}/> 
+             <Route path="/travel-plug/stations" exact component={Api}/> 
+             <Route path="/travel-plug/login" exact component={SignInForm}/> 
+             <Route exact path="/travel-plug/register" component={Form}/> 
+             <Route exact path="/travel-plug" component={Map}/> 
              {/* <Route path="/" component={} /> */}
              {/* {backdrop} */}
-             <Map />
+             {/* <Map /> */}
 
           </Switch>
         </div>
