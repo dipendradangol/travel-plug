@@ -1,7 +1,7 @@
-import React from 'react';
+import React from './node_modules/react';
 import ToggleButton from './sidebar/ToggleButton';
 import './Navbar.css';
-import { Link } from 'react-router-dom';
+import { Link } from './node_modules/react-router-dom';
 
 const Navbar = props => (
     <header className="toolbar">

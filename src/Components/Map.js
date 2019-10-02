@@ -1,8 +1,8 @@
-import React from 'react';
+import React from './node_modules/react';
 import Distance from './Distance';
 
-import * as plugData from "./plug-location.json";
-import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import * as plugData from "./plug-location.json.js.js";
+import ReactMapGL, { Marker, Popup } from './node_modules/react-map-gl';
 
 
 
