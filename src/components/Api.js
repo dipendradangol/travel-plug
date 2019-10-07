@@ -9,6 +9,10 @@ class Api extends Component {
     this.state = {
       items: [],
       isLoaded: false,
+      userLocation: {
+        lat2: null,
+        lon2: null,
+      }
     }
 
     this.showPosition = this.showPosition.bind(this);
@@ -21,8 +25,12 @@ class Api extends Component {
    * @param {Object} position contains coordinators of user location
    */
   showPosition(position) {
-    lat2 = position.coords.latitude
-    lon2 = position.coords.longitude;
+    this.setState({
+      userLocation: {
+        lat2: position.coords.latitude,
+        lon2: position.coords.longitude,
+      }
+    });
   }
 
   /**
