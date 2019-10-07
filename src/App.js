@@ -11,52 +11,39 @@ import SignInForm from './components/SignInForm';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 
-// import Backdrop from './components/sidebar/Backdrop';
-
 class App extends React.Component {
   state = {
-    sidebarOpen: false,  
+    sidebarOpen: false,
   };
 
-  ToggleClickHandler = () => {
+  /**
+   * update the state with the inverted value of sidebarOpen
+   * @param
+   * @return {Void}
+   */
+  toggleClickHandler = () => {
     this.setState((prevState) => {
       return { sidebarOpen: !prevState.sidebarOpen };
     });
   };
 
-  backdropClickHandler = () => {
-    this.setState({ sidebarOpen: false });
-  };
-
   render() {
-    let sidebar;
-    // let backdrop;
-
-    if (this.state.sidebarOpen) {
-      sidebar = <Sidebar />;
-      // backdrop = <Backdrop click={this.backdropClickHandler} />;
-
-    }
     return (
       <Router>
-        <div style={{height: '100%'}}>
-          <Navbar drawerClickHandler={this.ToggleClickHandler} />
-          {sidebar}
+        <div style={{ height: '100%' }}>
+          <Navbar drawerClickHandler={this.toggleClickHandler} />
+          {this.state.sidebarOpen ? <Sidebar /> : null}
           <Switch>
-             <Route path="/travel-plug/stations" exact component={Api}/> 
-             <Route path="/travel-plug/login" exact component={SignInForm}/> 
-             <Route exact path="/travel-plug/register" component={Form}/> 
-             <Route exact path="/travel-plug/" component={Map}/> 
-             {/* <Route path="/" component={} /> */}
-             {/* {backdrop} */}
-             {/* <Map /> */}
-
+            <Route path="/travel-plug/stations" exact component={Api} />
+            <Route path="/travel-plug/login" exact component={SignInForm} />
+            <Route exact path="/travel-plug/register" component={Form} />
+            <Route exact path="/travel-plug/" component={Map} />
+            {/* <Route path="/" component={} /> */}
+            {/* {backdrop} */}
+            {/* <Map /> */}
           </Switch>
         </div>
-      </Router> 
-
-
-            
+      </Router>
     );
   }
 }
